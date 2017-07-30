@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+.div0{
+	margin:0 auto;
+	width:1000px;
+}
+.div1{
+	height:40px;
+	width:1000px;
+	margin-left:0px;
+    background: url(images2/register_tag_mid.gif);
+}
+.div2{
+	height:30px;
+	width:1000px;
+	margin-left:0px;
+}
+.div2-1{
+	height:30px;
+	width:330px;
+    float:left;
+    text-align:center;
+    line-height:40px;
+	background: url(images2/register_tag_left.gif);
+}
+.div2-2{
+	height:30px;
+	width:330px;
+    float:left;
+    line-height:40px;
+    text-align:center;
+	background: url(images2/register_tag_mid.gif);
+}
+.div2-3{
+	height:30px;
+	width:330px;
+    float:left;
+    line-height:40px;
+    text-align:center;
+	background: url(images2/register_tag_right.gif);
+}
+.div3{
+	height:80px;
+	width:1000px;
+	margin-left:0px;
+}
+.div3-1{
+	height:80px;
+	width:300px;
+    float:left;
+	text-align:right;
+}
+.div3-2{
+	height:80px;
+	width:690px;
+    float:left;
+    text-align:left;
+
+}
+.div4{
+	height:540px;
+	width:800px;
+	margin-left:100px;
+    text-align:center;
+}
+.div5{
+	height:30px;
+	width:1000px;
+    float:left;
+    text-align:center;
+}
+.div6{
+	height:30px;
+	width:650px;
+    float:left;
+    text-align:right;
+    line-height:50px;
+}
+.submit{
+	background:green;
+	width:120px;
+	height:50px;
+    text-align:center;
+}
+.word{
+    float:right;
+}

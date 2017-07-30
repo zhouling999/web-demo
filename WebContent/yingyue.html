@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>音频播放</title>
+</head>
+<body>
+  <div style="top: 50px;width: 800px;height: 500px;background-image: url(images3/bg.jpg)">
+  </div>
+<div  id="audioDiv" >
+    <audio id="myAudio" controls style="height: 30px;width: 800px;">
+        <source src="images3/123.mp3" type="audio/mpeg" />
+        <source src="images3/123.ogg" type="audio/ogg" />
+        <source src="images3/123.wav" type="audio/x-wav" />
+        您的浏览器不支持此标签
+    </audio>
+</div>
+
+<div id="controlBar" style="margin-left:120px;">
+   <input id="audioPlayer" type="button" value="开始播放">
+   <input id="audioRange" type="range" width="150px" value="0" max="100">
+   <input id="audioInfo" type="text" disabled style="width:70px">
+   <input id="audioVoice" type="button" value="静音">
+</div>
+
+<script type="text/javascript">
+    var myAudio =document.getElementById("myAudio");
+    var audioPlayer =document.getElementById("audioPlayer");
+    var audioRange =document.getElementById("audioRange");
+    var audioInfo =document.getElementById("audioInfo");
+    var audioVoice =document.getElementById("audioVoice");
+    
+    //播放暂停按钮
+    audioPlayer.onclick=function(){
+        if(myAudio.paused){
+        	myAudio.play();
+            audioPlayer.value="暂停播放";
+        }else{
+        	myAudio.pause();
+            audioPlayer.value="开始播放";
+        }
+    };
+  //视频播放时，滚动条同步
+    myAudio.ontimeupdate=function(){
+       var currentTime=Math.round(myAudio.currentTime*Math.pow(10,2))/Math.pow(10,2);
+       var totalTime=Math.round(myAudio.duration*Math.pow(10,2))/Math.pow(10,2);
+       audioInfo.value=currentTime+"/"+totalTime;
+       audioRange.value=(currentTime/totalTime)*100;
+       if(myAudio.ended){
+    	audioRange.value=0;
+       }
+    };
+
+    //拖动滚动条同步
+        audioRange.onmousedown=function(){
+	    myAudio.pause();
+         };
+        audioRange.onmouseup=function(){
+             	myAudio.currentTime=myAudio.duration*(audioRange.value/audioRange.max);
+	            myAudio.play();
+         };
+    //静音
+    audioVoice.onclick=function(){
+        if(!myAudio.muted){
+            audioVoice.value="取消静音";
+            myAudio.muted=true;
+        }else{
+        	audioVoice.value="静音";
+            myAudio.muted=false;
+        }
+    };
+
+</script>
+</body>
+</html>
